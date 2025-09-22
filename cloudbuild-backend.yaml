@@ -10,7 +10,7 @@ steps:
       - '.'
     dir: 'backend'
 
-  # Push the Docker image to Google Container Registry 
+  # Push the Docker image to Google Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
@@ -35,11 +35,12 @@ steps:
       - '--set-env-vars=STORAGE_BUCKET_NAME=${_STORAGE_BUCKET_NAME}'
       - '--set-env-vars=VERTEX_AI_PROJECT_ID=${PROJECT_ID}' # Using built-in PROJECT_ID
       - '--set-env-vars=VERTEX_AI_LOCATION=${_VERTEX_AI_LOCATION}'
-      # Add other sensitive environment variables from Secret Manager here if needed
-      # Example: - '--set-secrets=/app/path/to/secret.json=my-secret:latest'
     # The 'dir' parameter is not needed here as gcloud run deploy operates on the image
     # and the current working directory for Cloud Build is the root of the repository.
+
 options:
-  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
+  # Specify that logs should be sent to Cloud Logging only.
+  # The default_logs_bucket_behavior option is no longer necessary with this setting.
+  logging: CLOUD_LOGGING_ONLY
 images:
   - 'gcr.io/${PROJECT_ID}/healthcare-testgen-backend:${COMMIT_SHA}'
