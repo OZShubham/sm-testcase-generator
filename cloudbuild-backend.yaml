@@ -1,5 +1,7 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
 steps:
-  # build the container image
+  # Build the container image
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
@@ -32,5 +34,3 @@ steps:
         "--set-env-vars",
         "STORAGE_BUCKET_NAME=${_STORAGE_BUCKET_NAME},VERTEX_AI_PROJECT_ID=${PROJECT_ID},VERTEX_AI_LOCATION=${_VERTEX_AI_LOCATION}"
       ]
-options:
-  logging: CLOUD_LOGGING_ONLY
