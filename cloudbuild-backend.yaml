@@ -1,4 +1,3 @@
-logsBucket: 'gs://cloudbuild-logs-sm'
 options:
   logging: CLOUD_LOGGING_ONLY
 steps:
@@ -35,5 +34,6 @@ steps:
         "--set-env-vars",
         "STORAGE_BUCKET_NAME=${_STORAGE_BUCKET_NAME},VERTEX_AI_PROJECT_ID=${PROJECT_ID},VERTEX_AI_LOCATION=${_VERTEX_AI_LOCATION}"
       ]
-# Add this section to specify the user-managed service accountd
+# Specify the user-managed service account
 serviceAccount: 'projects/${PROJECT_ID}/serviceAccounts/141241159430-compute@developer.gserviceaccount.com'
+
