@@ -1,6 +1,6 @@
+logsBucket: 'gs://cloudbuild-logs-sm'
 options:
-  # logging: CLOUD_LOGGING_ONLY  <-- DELETE THIS LINE
-  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
+  logging: GCS_ONLY  # Use GCS_ONLY, not CLOUD_LOGGING_ONLY
 steps:
   # Build the container image
   - name: "gcr.io/cloud-builders/docker"
@@ -24,7 +24,7 @@ steps:
       [
         "run",
         "deploy",
-        "healthcare-testgen-backend",
+        "${_SERVICE_NAME}",
         "--image",
         "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/sm-testcase-generator:$COMMIT_SHA",
         "--region",
