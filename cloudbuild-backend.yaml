@@ -1,5 +1,6 @@
 options:
-  logging: CLOUD_LOGGING_ONLY
+  logging: GCS_ONLY # Directs logs to Google Cloud Storage
+logsBucket: 'gs://cloudbuild-logs-sm' # Your custom bucket for build logs
 steps:
   # Build the container image
   - name: "gcr.io/cloud-builders/docker"
