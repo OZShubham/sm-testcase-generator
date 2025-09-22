@@ -1,0 +1,4 @@
+functions-framework==3.*
+vertexai
+google-cloud-firestore
+google-cloud-pubsub

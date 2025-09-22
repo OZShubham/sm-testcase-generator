@@ -1,0 +1,231 @@
+/* Global CSS Custom Properties and Base Styles */
+
+/* Additional CSS Custom Properties */
+:root {
+  /* Extended Color Palette */
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  
+  --color-green-50: #ecfdf5;
+  --color-green-100: #d1fae5;
+  --color-green-500: #10b981;
+  --color-green-600: #059669;
+  
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  
+  --color-yellow-50: #fffbeb;
+  --color-yellow-100: #fef3c7;
+  --color-yellow-500: #f59e0b;
+  --color-yellow-600: #d97706;
+  
+  --color-purple-50: #faf5ff;
+  --color-purple-100: #f3e8ff;
+  --color-purple-500: #8b5cf6;
+  --color-purple-600: #7c3aed;
+  
+  /* Healthcare Theme Colors */
+  --healthcare-primary: var(--primary-blue);
+  --healthcare-secondary: var(--primary-green);
+  --healthcare-accent: var(--primary-orange);
+  --healthcare-danger: var(--primary-red);
+  --healthcare-success: var(--primary-green);
+  --healthcare-warning: var(--primary-orange);
+  --healthcare-info: var(--primary-blue);
+  
+  /* Component Specific Colors */
+  --card-background: var(--white);
+  --card-border: var(--gray-200);
+  --input-background: var(--white);
+  --input-border: var(--gray-300);
+  --input-focus: var(--primary-blue);
+  
+  /* Z-Index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+  
+  /* Animation Durations */
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  
+  /* Animation Easings */
+  --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-cubic: cubic-bezier(0.32, 0, 0.67, 0);
+  --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--gray-900);
+    --color-surface: var(--gray-800);
+    --color-text: var(--gray-100);
+    --card-background: var(--gray-800);
+    --card-border: var(--gray-700);
+    --input-background: var(--gray-800);
+    --input-border: var(--gray-600);
+  }
+}
+
+/* Selection Styles */
+::selection {
+  background-color: rgba(37, 99, 235, 0.2);
+  color: var(--gray-900);
+}
+
+/* Focus Styles */
+:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Print Styles */
+@media print {
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .page-break-before {
+    page-break-before: always;
+  }
+  
+  .page-break-after {
+    page-break-after: always;
+  }
+  
+  .page-break-avoid {
+    page-break-inside: avoid;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Global Accessibility Improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--primary-blue);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-decoration: none;
+  z-index: var(--z-tooltip);
+  border-radius: 0 0 var(--radius-md) 0;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Global Loading States */
+.loading {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--gray-200);
+  border-top-color: var(--primary-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Global Error States */
+.error-boundary {
+  padding: var(--spacing-xl);
+  text-align: center;
+  border: 2px dashed var(--primary-red);
+  border-radius: var(--radius-lg);
+  margin: var(--spacing-lg);
+}
+
+.error-message {
+  color: var(--primary-red);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Global Success States */
+.success-message {
+  color: var(--primary-green);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Global Warning States */
+.warning-message {
+  color: var(--primary-orange);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Global Info States */
+.info-message {
+  color: var(--primary-blue);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+}

@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+firebase-admin
+python-multipart
+pydantic
+python-jose[cryptography]
+passlib[bcrypt]
+google-cloud-storage>=3.1.1
+python-dotenv
+httpx
+google-genai
+google-cloud-firestore
+docling

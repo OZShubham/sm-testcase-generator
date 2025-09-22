@@ -1,0 +1,103 @@
+.test-case-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.test-case-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.test-case-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.test-case-card__id {
+  font-family: monospace;
+  font-weight: 600;
+  color: var(--primary-blue);
+  font-size: 0.875rem;
+}
+
+.test-case-card__actions {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.test-case-card__content {
+  padding: var(--spacing-lg);
+}
+
+.test-case-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--gray-900);
+  line-height: 1.4;
+}
+
+.test-case-card__description {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.test-case-card__meta {
+  margin-bottom: var(--spacing-md);
+}
+
+.test-case-card__badge-group {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.test-case-card__badge {
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--radius-sm);
+  color: white;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.test-case-card__compliance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.test-case-card__compliance-tag {
+  background-color: var(--gray-100);
+  color: var(--gray-700);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.6875rem;
+  font-weight: 500;
+}
+
+.test-case-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--gray-100);
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}

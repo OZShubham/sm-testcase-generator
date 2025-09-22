@@ -1,0 +1,53 @@
+.register-form {
+  width: 100%;
+  max-width: 550px; /* Increased width */
+  margin: 0 auto;
+  padding: 2rem; /* Decreased padding */
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.register-form:hover {
+  transform: translateY(-5px);
+}
+
+.register-form .auth-form {
+  gap: 1rem; /* Decreased gap */
+}
+
+.register-form select {
+  padding: 0.85rem 1rem;
+  border: 2px solid #cbd5e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #f7fafc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23718096' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.register-form select:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+  background-color: white;
+}
+
+.register-form .auth-button {
+  background: linear-gradient(90deg, #50e3c2 0%, #4a90e2 100%);
+}
+
+@media (max-width: 768px) {
+  .register-form {
+    padding: 2rem;
+  }
+}

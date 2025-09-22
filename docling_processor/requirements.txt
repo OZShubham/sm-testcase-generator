@@ -1,0 +1,6 @@
+google-cloud-storage
+google-cloud-firestore
+docling
+markitdown
+functions-framework
+pypdfium2
