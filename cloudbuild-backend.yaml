@@ -1,5 +1,5 @@
 options:
-  logging: CLOUD_LOGGING_ONLY
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
 steps:
   # Build the container image
   - name: "gcr.io/cloud-builders/docker"
@@ -7,17 +7,17 @@ steps:
       [
         "build",
         "-t",
-        "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/healthcare-testgen-backend:$COMMIT_SHA",
+        "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/sm-testcase-generator:$COMMIT_SHA",
         "./backend/",
       ]
-    # push the container image
+  # push the container image
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
         "push",
-        "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/healthcare-testgen-backend:$COMMIT_SHA",
+        "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/sm-testcase-generator:$COMMIT_SHA",
       ]
-    # deploy to Cloud Run
+  # deploy to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
     args:
       [
@@ -25,7 +25,7 @@ steps:
         "deploy",
         "healthcare-testgen-backend",
         "--image",
-        "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/healthcare-testgen-backend:$COMMIT_SHA",
+        "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/sm-testcase-generator:$COMMIT_SHA",
         "--region",
         "europe-west1",
         "--platform",

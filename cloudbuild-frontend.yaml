@@ -7,7 +7,7 @@ steps:
       [
         "build",
         "-t",
-        "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/healthcare-testgen-frontend:$COMMIT_SHA",
+        "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/sm-testcase-generator:$COMMIT_SHA",
         "./frontend/",
       ]
     # push the container image
@@ -15,7 +15,7 @@ steps:
     args:
       [
         "push",
-        "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/healthcare-testgen-frontend:$COMMIT_SHA",
+        "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/sm-testcase-generator:$COMMIT_SHA",
       ]
     # deploy to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
@@ -23,9 +23,9 @@ steps:
       [
         "run",
         "deploy",
-        "healthcare-testgen-frontend",
+        "sm-testcase-generator",
         "--image",
-        "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/healthcare-testgen-frontend:$COMMIT_SHA",
+        "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/sm-testcase-generator:$COMMIT_SHA",
         "--region",
         "europe-west1",
         "--platform",
