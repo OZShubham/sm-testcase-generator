@@ -1,5 +1,3 @@
-options:
-  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
 steps:
   # Build the container image
   - name: "gcr.io/cloud-builders/docker"
