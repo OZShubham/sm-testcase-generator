@@ -39,5 +39,7 @@ steps:
       # Example: - '--set-secrets=/app/path/to/secret.json=my-secret:latest'
     # The 'dir' parameter is not needed here as gcloud run deploy operates on the image
     # and the current working directory for Cloud Build is the root of the repository.
+options:
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
 images:
   - 'gcr.io/${PROJECT_ID}/healthcare-testgen-backend:${COMMIT_SHA}'

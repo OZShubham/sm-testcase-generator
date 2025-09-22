@@ -49,5 +49,7 @@ steps:
       - '--allow-unauthenticated' # Adjust based on your authentication needs
       - '--port'
       - '80' # Nginx serves on port 80
+options:
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
 images:
   - 'gcr.io/${PROJECT_ID}/healthcare-testgen-frontend:${COMMIT_SHA}'
