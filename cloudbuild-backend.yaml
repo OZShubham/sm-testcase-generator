@@ -11,14 +11,14 @@ steps:
         "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/sm-testcase-generator:$COMMIT_SHA",
         "./backend/",
       ]
-  # push the container image
+  # Push the container image
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
         "push",
         "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/sm-testcase-generator:$COMMIT_SHA",
       ]
-  # deploy to Cloud Run
+  # Deploy to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
     args:
       [
@@ -35,3 +35,5 @@ steps:
         "--set-env-vars",
         "STORAGE_BUCKET_NAME=${_STORAGE_BUCKET_NAME},VERTEX_AI_PROJECT_ID=${PROJECT_ID},VERTEX_AI_LOCATION=${_VERTEX_AI_LOCATION}"
       ]
+# Add this section to specify the user-managed service account
+serviceAccount: 'projects/${PROJECT_ID}/serviceAccounts/141241159430-compute@developer.gserviceaccount.com'
