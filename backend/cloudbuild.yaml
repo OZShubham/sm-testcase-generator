@@ -25,18 +25,13 @@ steps:
       - '--image'
       - 'gcr.io/${PROJECT_ID}/healthcare-testgen-backend:${COMMIT_SHA}'
       - '--region'
-      - '${_CLOUD_RUN_REGION}' # Use custom substitution for region
+      - 'europe-west1' # Or your preferred region
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated' # Adjust based on your authentication needs
       - '--port'
       - '8000' # FastAPI runs on port 8000
-      # Set environment variables for the backend service
-      - '--set-env-vars=STORAGE_BUCKET_NAME=${_STORAGE_BUCKET_NAME}'
-      - '--set-env-vars=VERTEX_AI_PROJECT_ID=${PROJECT_ID}' # Using built-in PROJECT_ID
-      - '--set-env-vars=VERTEX_AI_LOCATION=${_VERTEX_AI_LOCATION}'
-      # Add other sensitive environment variables from Secret Manager here if needed
-      # Example: - '--set-secrets=/app/path/to/secret.json=my-secret:latest'
+      # Environment variables will be managed separately, see explanation below
     # The 'dir' parameter is not needed here as gcloud run deploy operates on the image
     # and the current working directory for Cloud Build is the root of the repository.
 images:

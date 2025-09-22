@@ -7,24 +7,6 @@ steps:
       - 'gcr.io/${PROJECT_ID}/healthcare-testgen-frontend:${COMMIT_SHA}'
       - '-f'
       - 'frontend/Dockerfile'
-      - '--build-arg'
-      - 'VITE_API_BASE_URL=${_BACKEND_SERVICE_URL}/api'
-      - '--build-arg'
-      - 'VITE_WEBSOCKET_URL=${_BACKEND_SERVICE_URL}'
-      - '--build-arg'
-      - 'VITE_GOOGLE_CLOUD_PROJECT_ID=${PROJECT_ID}' # Using built-in PROJECT_ID
-      - '--build-arg'
-      - 'VITE_FIREBASE_API_KEY=${_FIREBASE_API_KEY}'
-      - '--build-arg'
-      - 'VITE_FIREBASE_AUTH_DOMAIN=${_FIREBASE_AUTH_DOMAIN}'
-      - '--build-arg'
-      - 'VITE_FIREBASE_PROJECT_ID=${_FIREBASE_PROJECT_ID}'
-      - '--build-arg'
-      - 'VITE_FIREBASE_STORAGE_BUCKET=${_FIREBASE_STORAGE_BUCKET}'
-      - '--build-arg'
-      - 'VITE_FIREBASE_MESSAGING_SENDER_ID=${_FIREBASE_MESSAGING_SENDER_ID}'
-      - '--build-arg'
-      - 'VITE_FIREBASE_APP_ID=${_FIREBASE_APP_ID}'
       - '.'
     dir: 'frontend'
 
@@ -43,11 +25,13 @@ steps:
       - '--image'
       - 'gcr.io/${PROJECT_ID}/healthcare-testgen-frontend:${COMMIT_SHA}'
       - '--region'
-      - '${_CLOUD_RUN_REGION}' # Use custom substitution for region
+      - 'europe-west1' # Or your preferred region
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated' # Adjust based on your authentication needs
       - '--port'
       - '80' # Nginx serves on port 80
+    # The 'dir' parameter is not needed here as gcloud run deploy operates on the image
+    # and the current working directory for Cloud Build is the root of the repository.
 images:
   - 'gcr.io/${PROJECT_ID}/healthcare-testgen-frontend:${COMMIT_SHA}'
