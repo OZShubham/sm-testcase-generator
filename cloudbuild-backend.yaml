@@ -1,6 +1,7 @@
 logsBucket: 'gs://cloudbuild-logs-sm'
 options:
-  logging: GCS_ONLY  # Use GCS_ONLY, not CLOUD_LOGGING_ONLY
+  logging: GCS_ONLY
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
 steps:
   # Build the container image
   - name: "gcr.io/cloud-builders/docker"
