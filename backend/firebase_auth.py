@@ -1,7 +1,7 @@
 from fastapi import HTTPException, Depends, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from firebase_admin import auth
-from backend.db.firebase import db
+from db.firebase import db
 from datetime import datetime
 
 security = HTTPBearer()

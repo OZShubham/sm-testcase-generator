@@ -2,15 +2,15 @@ import os
 import uuid
 from fastapi import APIRouter, HTTPException, Depends, UploadFile, File
 from google.cloud import firestore, pubsub_v1
-from backend.db.firebase import db
-from backend.db.gcs import gcs_bucket
-from backend.firebase_auth import get_current_user
+from db.firebase import db
+from db.gcs import gcs_bucket
+from firebase_auth import get_current_user
 import json
 import base64
 from google.cloud import firestore, pubsub_v1
-from backend.db.firebase import db
-from backend.db.gcs import gcs_bucket
-from backend.firebase_auth import get_current_user
+from db.firebase import db
+from db.gcs import gcs_bucket
+from firebase_auth import get_current_user
 import json
 import base64
 

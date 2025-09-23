@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException, Depends, status
 from firebase_admin import auth
-from backend.db.firebase import db
-from backend.firebase_auth import get_current_user
-from backend.models.user import UserCreate, UserResponse, UserUpdate
+from db.firebase import db
+from firebase_auth import get_current_user
+from models.user import UserCreate, UserResponse, UserUpdate
 from datetime import datetime
 
 router = APIRouter()

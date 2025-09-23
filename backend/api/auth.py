@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from backend.firebase_auth import get_current_user
+from firebase_auth import get_current_user
 
 router = APIRouter()
 

@@ -1,6 +1,6 @@
-# Healthcare Test Case Generator
+# sm testcase generator
 
-![Healthcare Test Case Generator](https://img.shields.io/badge/Healthcare-AI%20Testing-blue)
+![sm testcase generator](https://img.shields.io/badge/sm%20testcase%20generator-AI%20Testing-blue)
 ![React](https://img.shields.io/badge/React-19.1.1-blue)
 ![Vite](https://img.shields.io/badge/Vite-7.1.2-green)
 ![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688)
@@ -12,7 +12,7 @@ An AI-powered platform for automatically generating compliant test cases from he
 
 ## 🏥 Overview
 
-The Healthcare Test Case Generator is a sophisticated application that leverages Google Cloud AI technologies, FastAPI, and React to transform healthcare software requirements into comprehensive, compliant test cases. Designed specifically for medical device software testing, it ensures adherence to critical healthcare standards like IEC 62304, FDA 21 CFR Part 820, and ISO 13485.
+The sm testcase generator is a sophisticated application that leverages Google Cloud AI technologies, FastAPI, and React to transform software requirements into comprehensive, compliant test cases. Designed specifically for software testing.
 
 ### 🎯 Key Features
 

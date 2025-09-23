@@ -1,5 +1,4 @@
 steps:
-  # Build the container image
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
@@ -8,14 +7,14 @@ steps:
         "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/sm-testcase-generator:$COMMIT_SHA",
         "./frontend/",
       ]
-    # push the container image
+  
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
         "push",
         "europe-west1-docker.pkg.dev/${PROJECT_ID}/cloud-run-source-deploy/sm-testcase-generator:$COMMIT_SHA",
       ]
-    # deploy to Cloud Run
+  
   - name: "gcr.io/cloud-builders/gcloud"
     args:
       [
@@ -29,8 +28,11 @@ steps:
         "--platform",
         "managed",
         "--allow-unauthenticated",
+        "--port",
+        "8080",
         "--set-env-vars",
         "VITE_API_BASE_URL=${_BACKEND_SERVICE_URL}/api,VITE_WEBSOCKET_URL=${_BACKEND_SERVICE_URL},VITE_GOOGLE_CLOUD_PROJECT_ID=${PROJECT_ID},VITE_FIREBASE_API_KEY=${_FIREBASE_API_KEY},VITE_FIREBASE_AUTH_DOMAIN=${_FIREBASE_AUTH_DOMAIN},VITE_FIREBASE_PROJECT_ID=${_FIREBASE_PROJECT_ID},VITE_FIREBASE_STORAGE_BUCKET=${_FIREBASE_STORAGE_BUCKET},VITE_FIREBASE_MESSAGING_SENDER_ID=${_FIREBASE_MESSAGING_SENDER_ID},VITE_FIREBASE_APP_ID=${_FIREBASE_APP_ID}"
       ]
+
 options:
-  logging: CLOUD_LOGGING_ONLY # Directs logs to Google Cloud Storage
+  logging: CLOUD_LOGGING_ONLY
