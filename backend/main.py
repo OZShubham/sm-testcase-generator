@@ -23,13 +23,13 @@ import re
 import json
 
 
-# Load environment variables from .env file
-dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
-load_dotenv(dotenv_path=dotenv_path)
+# # Load environment variables from .env file
+# dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+# load_dotenv(dotenv_path=dotenv_path)
 
-# Set Google credentials BEFORE importing other modules
-credentials_path = os.path.join('backend', 'credentials.json')
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
+# # Set Google credentials BEFORE importing other modules
+# credentials_path = os.path.join('backend', 'credentials.json')
+# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
 
 # Import routers after setting credentials
 from backend.api import documents, users, auth

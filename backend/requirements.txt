@@ -5,9 +5,10 @@ python-multipart
 pydantic
 python-jose[cryptography]
 passlib[bcrypt]
-google-cloud-storage>=3.1.1
+google-cloud-storage
 python-dotenv
 httpx
 google-genai
 google-cloud-firestore
 docling
+google-cloud-aiplatform
