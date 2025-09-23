@@ -3,15 +3,18 @@ FROM node:lts-alpine as build
 
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --only=production
+
+# Install ALL dependencies (including dev dependencies needed for build)
+RUN npm ci
+
 COPY . .
 RUN npm run build
 
-# Production stage
+# Production stage  
 FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Make nginx listen on port 8080 (Cloud Run default)
+# Make nginx listen on port 8080
 RUN echo 'server { \
     listen 8080; \
     location / { \

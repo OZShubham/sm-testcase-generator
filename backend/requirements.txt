@@ -12,3 +12,4 @@ google-genai
 google-cloud-firestore
 docling
 google-cloud-aiplatform
+google-cloud-pubsub
