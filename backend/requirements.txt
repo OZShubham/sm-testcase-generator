@@ -13,3 +13,4 @@ google-cloud-firestore
 docling
 google-cloud-aiplatform
 google-cloud-pubsub
+pydantic[email]
