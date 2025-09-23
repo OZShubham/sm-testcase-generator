@@ -36,3 +36,5 @@ steps:
     # and the current working directory for Cloud Build is the root of the repository.
 images:
   - 'gcr.io/${PROJECT_ID}/healthcare-testgen-backend:${COMMIT_SHA}'
+options:
+  logging: CLOUD_LOGGING_ONLY # Directs logs to Google Cloud Storage
