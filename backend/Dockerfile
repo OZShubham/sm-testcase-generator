@@ -13,9 +13,8 @@ COPY . .
 
 ENV PYTHONPATH=/app
 
+# Expose the default Cloud Run port
+EXPOSE 8080
 
-# Expose the port FastAPI runs on
-EXPOSE 8000
-
-# Run the FastAPI application
-CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port 8000"]
+# Run the FastAPI application using the PORT environment variable
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port $PORT"]
