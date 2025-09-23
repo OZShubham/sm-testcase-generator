@@ -29,8 +29,7 @@ steps:
         "--platform",
         "managed",
         "--allow-unauthenticated",
-        "--set-env-vars",
-        "STORAGE_BUCKET_NAME=${_STORAGE_BUCKET_NAME},VERTEX_AI_PROJECT_ID=${PROJECT_ID},VERTEX_AI_LOCATION=${_VERTEX_AI_LOCATION}"
+        "--set-env-vars=STORAGE_BUCKET_NAME=${_STORAGE_BUCKET_NAME},VERTEX_AI_PROJECT_ID=${PROJECT_ID},VERTEX_AI_LOCATION=${_VERTEX_AI_LOCATION}"
       ]
 options:
-  logging: CLOUD_LOGGING_ONLY # Directs logs to Google Cloud Storage
+  logging: CLOUD_LOGGING_ONLY

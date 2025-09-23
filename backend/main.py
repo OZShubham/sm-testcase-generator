@@ -23,9 +23,9 @@ import re
 import json
 
 
-# Load environment variables from .env file
-dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
-load_dotenv(dotenv_path=dotenv_path)
+# # Load environment variables from .env file
+# dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+# load_dotenv(dotenv_path=dotenv_path)
 
 # Set Google credentials BEFORE importing other modules
 #credentials_path = os.path.join('backend', 'credentials.json')
@@ -35,23 +35,23 @@ load_dotenv(dotenv_path=dotenv_path)
 from api import documents, users, auth
 
 # Initialize clients
-os.environ['GOOGLE_GENAI_USE_VERTEXAI'] = 'True'
-if not os.environ.get('GOOGLE_CLOUD_PROJECT'):
-    os.environ['GOOGLE_CLOUD_PROJECT'] = os.getenv("GCP_PROJECT_ID")
-if not os.environ.get('GOOGLE_CLOUD_LOCATION'):
-    os.environ['GOOGLE_CLOUD_LOCATION'] = "us-central1"
+# Set required environment variables with fallbacks
+os.environ['GOOGLE_CLOUD_PROJECT'] = os.getenv("GCP_PROJECT_ID", "silent-elevator-472108-p9")
+os.environ['GOOGLE_CLOUD_LOCATION'] = os.getenv("GOOGLE_CLOUD_LOCATION", "us-central1")
+
+
 
 # Explicitly initialize genai.Client for Vertex AI
 client = genai.Client(
     vertexai=True,
-    project=os.getenv("GCP_PROJECT_ID"),
-    location=os.getenv("GOOGLE_CLOUD_LOCATION")
+    project=os.getenv("GCP_PROJECT_ID", "silent-elevator-472108-p9"),
+    location=os.getenv("GOOGLE_CLOUD_LOCATION", "us-central1")
 )
 storage_client = storage.Client()
 db = firestore.Client()
 
 try:
-    vertexai.init(project=os.getenv("GCP_PROJECT_ID"), location=os.getenv("GOOGLE_CLOUD_LOCATION"))
+    vertexai.init(project=os.getenv("GCP_PROJECT_ID", "silent-elevator-472108-p9"), location=os.getenv("GOOGLE_CLOUD_LOCATION", "us-central1"))
 except Exception as e:
     raise RuntimeError(f"Failed to initialize Vertex AI: {e}")
 
