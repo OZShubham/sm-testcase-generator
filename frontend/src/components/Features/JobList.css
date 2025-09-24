@@ -103,3 +103,52 @@
 .refresh-button .spin {
   animation: spin 1s linear infinite;
 }
+
+
+/* Add this */
+.spin {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ensure table or row is not affected */
+.job-table,
+.job-table tr,
+.job-table td {
+  transform: none !important;
+}
+
+.job-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  background: #fff;
+  padding: 1rem;
+  border-radius: var(--border-radius-large);
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  border: 1px solid #e0e0e0;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #6c757d;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-text-primary);
+}
