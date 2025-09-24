@@ -106,12 +106,7 @@ class ApiClient {
 const apiClient = new ApiClient();
 
 export const testCaseApi = {
-  getAll: (filters = {}) => apiClient.get(API_ENDPOINTS.GET_TESTS, filters),
-  getById: (id) => apiClient.get(`${API_ENDPOINTS.GET_TESTS}/${id}`),
-  create: (testCase) => apiClient.post(API_ENDPOINTS.GET_TESTS, testCase),
-  update: (id, updates) => apiClient.put(API_ENDPOINTS.UPDATE_TEST.replace(':id', id), updates),
-  delete: (id) => apiClient.delete(API_ENDPOINTS.DELETE_TEST.replace(':id', id)),
-  generate: (documentId, config = {}) => apiClient.post(API_ENDPOINTS.GENERATE_TESTS, { documentId, ...config }),
+  generate: (documentId, config = {}) => apiClient.post(API_ENDPOINTS.GENERATE_TESTS.replace('{document_id}', documentId), config),
   export: (testCaseIds, format = 'csv') => apiClient.post(API_ENDPOINTS.EXPORT_TESTS, { testCaseIds, format }),
 };
 

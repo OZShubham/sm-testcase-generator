@@ -93,7 +93,7 @@ The sm testcase generator is a sophisticated application that leverages Google C
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/healthcare-testgen.git
+git clone https://github.com/OZShubham/sm-testcase-generator.git
 cd healthcare-testgen
 ```
 
@@ -131,7 +131,7 @@ uvicorn main:app --reload --port 8000
 
 7. **Open in browser**
 ```
-http://localhost:5173 (or whatever port Vite uses)
+https://your-production-frontend-url (or whatever port Vite uses)
 ```
 
 ## ⚙️ Environment Variables
@@ -140,8 +140,8 @@ Create a `.env` file in the root directory with the following variables:
 
 ```env
 # API Configuration
-VITE_API_BASE_URL=http://localhost:8000/api
-VITE_WEBSOCKET_URL=http://localhost:8000
+VITE_API_BASE_URL=https://your-production-backend-url/api
+VITE_WEBSOCKET_URL=https://your-production-backend-url
 
 # Google Cloud Configuration
 VITE_GOOGLE_CLOUD_PROJECT_ID=your-project-id
@@ -212,6 +212,22 @@ GOOGLE_APPLICATION_CREDENTIALS=./backend/credentials.json # Path to your service
 - **Google Cloud Storage**: Primary storage for uploaded documents.
 - **Firebase Authentication**: User management.
 - **Firestore**: Real-time database for collaborative features.
+
+## 🤖 AI-Powered Features
+
+This project leverages the following AI-powered features:
+
+- **Google Cloud Functions**: Serverless functions for document processing, including Docling for document parsing and requirement extraction.
+- **RAG Engine**: A Retrieval-Augmented Generation engine that enhances the context and grounding of the generated test cases.
+- **Gemini LLM**: Google's state-of-the-art Large Language Model for generating and refining test cases.
+- **GenAI**: Google's Generative AI models for intelligent chat assistance and compliance validation.
+
+The core AI-powered components include:
+
+- **Docling Processor**: A Google Cloud Function that processes uploaded documents, converting them to markdown format and extracting relevant information.
+- **Requirement Extractor Service**: A Google Cloud Function that extracts requirements from the processed documents.
+- **RAG Engine**: A Retrieval-Augmented Generation engine that retrieves relevant context from a corpus of healthcare documents to improve the accuracy and compliance of the generated test cases.
+- **Gemini LLM**: Google's state-of-the-art Large Language Model, used for generating and refining test cases based on the extracted requirements and retrieved context.
 
 ## 📱 Usage Guide
 
@@ -728,14 +744,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 ### Community Support
-- **GitHub Discussions**: [Link to discussions]
-- **Discord Community**: [Link to Discord]
+- **GitHub Discussions**: [https://github.com/OZShubham/sm-testcase-generator/discussions]
+- **Discord Community**: [https://discord.gg/healthcare-testgen]
 - **Stack Overflow**: Tag with `healthcare-testgen`
 
 ### Professional Support
 - **Email**: support@healthcare-testgen.com
-- **Documentation**: [Link to detailed docs]
-- **Training**: [Link to training resources]
+- **Documentation**: [https://example.com/docs]
+- **Training**: [https://example.com/training]
 
 ### Bug Reports
 Please use GitHub Issues for bug reports:
@@ -783,8 +799,8 @@ Please use GitHub Issues for bug reports:
 - [📧 Newsletter](https://newsletter.healthcare-testgen.com)
 
 ### Stats
-![GitHub Stars](https://img.shields.io/github/stars/your-username/healthcare-testgen)
-![GitHub Forks](https://img.shields.io/github/forks/your-username/healthcare-testgen)
-![GitHub Issues](https://img.shields.io/github/issues/your-username/healthcare-testgen)
-![GitHub PR](https://img.shields.io/github/issues-pr/your-username/healthcare-testgen)
-![Contributors](https://img.shields.io/github/contributors/your-username/healthcare-testgen)
+![GitHub Stars](https://img.shields.io/github/stars/OZShubham/sm-testcase-generator)
+![GitHub Forks](https://img.shields.io/github/forks/OZShubham/sm-testcase-generator)
+![GitHub Issues](https://img.shields.io/github/issues/issues/OZShubham/sm-testcase-generator)
+![GitHub PR](https://img.shields.io/github/issues-pr/OZShubham/sm-testcase-generator)
+![Contributors](https://img.shields.io/github/contributors/OZShubham/sm-testcase-generator)
