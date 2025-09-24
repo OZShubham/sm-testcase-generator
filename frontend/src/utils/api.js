@@ -4,7 +4,7 @@ import { getIdToken } from './firebase';
 
 class ApiClient {
   constructor() {
-    this.baseURL = import.meta.env.VITE_API_URL || API_ENDPOINTS.BASE_URL;
+    this.baseURL = import.meta.env.VITE_API_BASE_URL || API_ENDPOINTS.BASE_URL;
     this.defaultHeaders = {
       'Content-Type': 'application/json',
     };
