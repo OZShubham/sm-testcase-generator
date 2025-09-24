@@ -162,7 +162,7 @@ export const documentApi = {
     formData.append('file', file);
     
     try {
-      return await apiClient.request('/api/documents/upload', {
+      return await apiClient.request('/documents/upload', {
         method: 'POST',
         body: formData,
       });

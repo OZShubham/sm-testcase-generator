@@ -54,9 +54,9 @@ export const SUPPORTED_FILE_TYPES = {
 
 export const API_ENDPOINTS = {
   BASE_URL: import.meta.env.VITE_API_URL || 'http://localhost:8000',
-  UPLOAD_DOCUMENT: '/api/documents/upload',
-  GET_JOBS: '/api/documents', // Renamed from GET_DOCUMENTS to GET_JOBS
-  GENERATE_TESTS: '/api/documents/{document_id}/generate-test-cases',
+  UPLOAD_DOCUMENT: '/documents/upload',
+  GET_JOBS: '/documents',
+  GENERATE_TESTS: '/documents/{document_id}/generate-test-cases',
 }
 
 export const ROUTES = {
