@@ -25,14 +25,16 @@ class ApiClient {
     };
 
     try {
-      const token = await getIdToken();
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-    } catch (error) {
-      console.error('Could not get auth token:', error);
-    }
-
+          const token = await getIdToken();
+          console.log('Got token:', token ? 'Yes' : 'No');
+          if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+          } else {
+            console.error('No token available - user might not be logged in');
+          }
+        } catch (error) {
+          console.error('Could not get auth token:', error);
+        }
     try {
       const response = await fetch(url, config);
       
