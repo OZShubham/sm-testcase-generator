@@ -211,10 +211,10 @@ const DocumentUpload = () => {
       
       // Set uploaded job info
       setUploadedJob({
-        id: result.document_id,
-        filename: result.filename,
-        size: result.file_size
-      });
+      id: result.document_id,
+      filename: result.filename || file.name,
+      size: file.size
+    });
 
       setUploadProgress(100);
       
