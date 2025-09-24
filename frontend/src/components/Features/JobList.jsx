@@ -376,8 +376,8 @@ const JobList = ({ refreshTrigger }) => {
             {loading && jobs.length === 0 ? (
               <tr>
                 <td colSpan="5" className="loading-spinner">
-                  <Clock className="spin" />
-                  <span>Loading jobs...</span>
+                  <Clock className="spin" size={32} />
+                  <p>Loading jobs...</p>
                 </td>
               </tr>
             ) : jobs.length === 0 ? (

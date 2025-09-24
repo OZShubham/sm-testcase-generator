@@ -99,3 +99,7 @@
 .loading-spinner {
   text-align: center;
 }
+
+.refresh-button .spin {
+  animation: spin 1s linear infinite;
+}

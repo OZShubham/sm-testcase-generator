@@ -338,14 +338,14 @@ const DocumentUpload = () => {
                 {statusDisplay.icon}
                 <h3>{statusDisplay.title}</h3>
                 <p>{statusDisplay.description}</p>
-                
+
                 {uploadStatus === 'processing' && uploadedJob && (
                   <div className="processing-details">
                     <div className="processing-steps">
                       <div className={`step ${uploadedJob.docling_status !== 'Pending' ? 'active' : ''}`}>
                         <span className="step-number">1</span>
                         <span className="step-label">
-                          Document Conversion 
+                          Document Conversion
                           {uploadedJob.docling_status === 'Completed' && <CheckCircle size={16} />}
                           {uploadedJob.docling_status === 'Processing' && <Clock size={16} className="spin" />}
                         </span>
@@ -359,7 +359,7 @@ const DocumentUpload = () => {
                         </span>
                       </div>
                     </div>
-                    
+
                     {uploadedJob.processing_duration_seconds && (
                       <div className="processing-time">
                         Processing time: {documentUtils.formatDuration(uploadedJob.processing_duration_seconds)}
@@ -367,11 +367,11 @@ const DocumentUpload = () => {
                     )}
                   </div>
                 )}
-                
+
                 {(uploadStatus === 'uploading' || uploadStatus === 'processing') && (
                   <div className="progress-bar">
-                    <div 
-                      className="progress-fill" 
+                    <div
+                      className="progress-fill"
                       style={{ width: `${uploadProgress}%` }}
                     />
                   </div>
@@ -399,11 +399,19 @@ const DocumentUpload = () => {
                 />
               </>
             )}
-            
+
             {error && uploadStatus !== 'failed' && (
               <div className="error-message">
                 <AlertTriangle size={16} />
                 {error}
+              </div>
+            )}
+            {(uploadStatus === 'uploading' || uploadStatus === 'processing') && (
+              <div className="progress-bar">
+                <div
+                  className="progress-fill"
+                  style={{ width: `${uploadProgress}%` }}
+                />
               </div>
             )}
           </div>
@@ -418,7 +426,20 @@ const DocumentUpload = () => {
           </div>
         </Card>
       ) : (
-        <JobList refreshTrigger={uploadCount} />
+        <>
+          {uploadedJob && (
+            <Card className="job-metrics-card" padding="large">
+              <h2>Job Metrics</h2>
+              <p>File Name: {uploadedJob.filename}</p>
+              <p>File Size: {documentUtils.formatFileSize(uploadedJob.size)}</p>
+              <p>Upload Status: {uploadStatus}</p>
+              {uploadedJob.processing_duration_seconds && (
+                <p>Processing Time: {documentUtils.formatDuration(uploadedJob.processing_duration_seconds)}</p>
+              )}
+            </Card>
+          )}
+          <JobList refreshTrigger={uploadCount} />
+        </>
       )}
     </div>
   );
